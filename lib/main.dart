@@ -5,14 +5,13 @@ import 'package:provider/provider.dart';
 import 'providers/theme_provider.dart';
 import 'screens/home_screen.dart';
 import 'screens/activity1_screen.dart';
-import 'screens/activity2_screen.dart';
 import 'screens/network_monitor_screen.dart';
 import 'screens/settings_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(
-    // Riverpod powers the Network Monitor module (Activity 3) while the
+    // Riverpod powers the Network Monitor module (Activity 2) while the
     // existing Provider based theme state keeps working unchanged.
     ProviderScope(
       child: ChangeNotifierProvider(
@@ -34,7 +33,7 @@ class MobileComputingApp extends StatelessWidget {
         const seedColor = Colors.indigo;
 
         return MaterialApp(
-          title: 'Flutter Portfolio - Activity 1',
+          title: 'Flutter Portfolio - Activity 1 & 2',
           debugShowCheckedModeBanner: false,
           themeMode: themeProvider.themeMode,
           theme: ThemeData(
@@ -71,7 +70,7 @@ class MobileComputingApp extends StatelessWidget {
           routes: {
             '/': (context) => const HomeScreen(),
             '/activity1': (context) => const Activity1Screen(),
-            '/activity2': (context) => const Activity2Screen(),
+            '/activity2': (context) => const NetworkMonitorScreen(),
             '/network-monitor': (context) => const NetworkMonitorScreen(),
             '/settings': (context) => const SettingsScreen(),
           },

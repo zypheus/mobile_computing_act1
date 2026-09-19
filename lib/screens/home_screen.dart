@@ -39,7 +39,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  'Mobile Computing 3 Activities',
+                  'Mobile Computing Activities',
                   style: theme.textTheme.labelSmall?.copyWith(
                     color: colorScheme.onSurfaceVariant,
                   ),
@@ -130,7 +130,7 @@ class HomeScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: Text(
-                    '3 Activities',
+                    '2 Activities',
                     style: theme.textTheme.labelSmall?.copyWith(
                       fontWeight: FontWeight.bold,
                       color: colorScheme.onSurfaceVariant,
@@ -143,12 +143,9 @@ class HomeScreen extends StatelessWidget {
               // Responsive Grid/List layout for Activity Cards
               LayoutBuilder(
                 builder: (context, constraints) {
-                  // Responsive grid: 1 / 2 / 3 columns depending on the width
-                  // available so the activity cards are never squeezed.
+                  // Responsive grid: 1 or 2 columns depending on width available
                   const double gap = 16;
-                  final int columns = constraints.maxWidth >= 1080
-                      ? 3
-                      : (constraints.maxWidth >= 640 ? 2 : 1);
+                  final int columns = constraints.maxWidth >= 640 ? 2 : 1;
                   final double cardWidth =
                       (constraints.maxWidth - gap * (columns - 1)) / columns;
 
@@ -171,19 +168,6 @@ class HomeScreen extends StatelessWidget {
 
                   final activity2Card = ActivityCard(
                     subtitle: 'ACTIVITY 02',
-                    title: 'Activity 2 Placeholder',
-                    description:
-                        'Reserved module for upcoming mobile computing laboratory assignments and exercises.',
-                    icon: Icons.hourglass_empty_rounded,
-                    tags: const ['Placeholder', 'Upcoming Lab'],
-                    status: ActivityStatus.upcoming,
-                    onTap: () {
-                      Navigator.pushNamed(context, '/activity2');
-                    },
-                  );
-
-                  final activity3Card = ActivityCard(
-                    subtitle: 'ACTIVITY 03',
                     title: 'Network Monitor & Request Queue',
                     description:
                         'Tracks live Wi-Fi, cellular and offline states, then parks interrupted HTTP requests and retries them automatically after a handover.',
@@ -196,7 +180,7 @@ class HomeScreen extends StatelessWidget {
                     ],
                     status: ActivityStatus.inProgress,
                     onTap: () {
-                      Navigator.pushNamed(context, '/network-monitor');
+                      Navigator.pushNamed(context, '/activity2');
                     },
                   );
 
@@ -207,7 +191,6 @@ class HomeScreen extends StatelessWidget {
                       for (final Widget card in <Widget>[
                         activity1Card,
                         activity2Card,
-                        activity3Card,
                       ])
                         SizedBox(width: cardWidth, child: card),
                     ],

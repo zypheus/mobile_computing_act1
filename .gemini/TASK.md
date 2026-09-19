@@ -3,6 +3,7 @@
 - [x] Initialize Flutter project `mobile_computing_act1` (2026-09-16)
 - [x] Implement Provider global theme state, master portfolio dashboard, Activity 1 state management demo, Activity 2 placeholder, and Settings screen (2026-09-16)
 - [x] Activity 3 – Network Monitor module: `connectivity_plus` live state (Wi-Fi / Cellular / Offline), Riverpod request queue that parks interrupted `http` requests and retries them after a handover, scripted Wi-Fi → Offline → Cellular demo controls and a connection event log (2026-09-19)
+- [x] Remove Activity 2 placeholder and promote Network Monitor module to Activity 2 (2026-09-19)
 
 ## Activity 3 – Network Monitor structure
 

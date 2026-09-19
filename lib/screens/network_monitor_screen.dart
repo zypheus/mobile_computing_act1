@@ -12,7 +12,7 @@ import '../widgets/network_action_panel.dart';
 import '../widgets/network_status_card.dart';
 import '../widgets/request_queue_panel.dart';
 
-/// Activity 3 – real time connectivity monitoring with an offline request
+/// Activity 2 – real time connectivity monitoring with an offline request
 /// queue that survives network handovers.
 class NetworkMonitorScreen extends ConsumerWidget {
   const NetworkMonitorScreen({super.key});
