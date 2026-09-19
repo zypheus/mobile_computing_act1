@@ -178,7 +178,7 @@ class HomeScreen extends StatelessWidget {
                       'Riverpod',
                       'Request Queue',
                     ],
-                    status: ActivityStatus.inProgress,
+                    status: ActivityStatus.completed,
                     onTap: () {
                       Navigator.pushNamed(context, '/activity2');
                     },
