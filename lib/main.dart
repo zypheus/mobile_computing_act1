@@ -1,18 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart' hide Consumer;
 import 'package:provider/provider.dart';
 
 import 'providers/theme_provider.dart';
 import 'screens/home_screen.dart';
 import 'screens/activity1_screen.dart';
 import 'screens/activity2_screen.dart';
+import 'screens/network_monitor_screen.dart';
 import 'screens/settings_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(
-    ChangeNotifierProvider(
-      create: (_) => ThemeProvider(),
-      child: const MobileComputingApp(),
+    // Riverpod powers the Network Monitor module (Activity 3) while the
+    // existing Provider based theme state keeps working unchanged.
+    ProviderScope(
+      child: ChangeNotifierProvider(
+        create: (_) => ThemeProvider(),
+        child: const MobileComputingApp(),
+      ),
     ),
   );
 }
@@ -66,6 +72,7 @@ class MobileComputingApp extends StatelessWidget {
             '/': (context) => const HomeScreen(),
             '/activity1': (context) => const Activity1Screen(),
             '/activity2': (context) => const Activity2Screen(),
+            '/network-monitor': (context) => const NetworkMonitorScreen(),
             '/settings': (context) => const SettingsScreen(),
           },
         );

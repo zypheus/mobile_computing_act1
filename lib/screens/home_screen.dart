@@ -130,7 +130,7 @@ class HomeScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: Text(
-                    '2 Activities',
+                    '3 Activities',
                     style: theme.textTheme.labelSmall?.copyWith(
                       fontWeight: FontWeight.bold,
                       color: colorScheme.onSurfaceVariant,
@@ -143,7 +143,14 @@ class HomeScreen extends StatelessWidget {
               // Responsive Grid/List layout for Activity Cards
               LayoutBuilder(
                 builder: (context, constraints) {
-                  final isWideScreen = constraints.maxWidth > 650;
+                  // Responsive grid: 1 / 2 / 3 columns depending on the width
+                  // available so the activity cards are never squeezed.
+                  const double gap = 16;
+                  final int columns = constraints.maxWidth >= 1080
+                      ? 3
+                      : (constraints.maxWidth >= 640 ? 2 : 1);
+                  final double cardWidth =
+                      (constraints.maxWidth - gap * (columns - 1)) / columns;
 
                   final activity1Card = ActivityCard(
                     subtitle: 'ACTIVITY 01',
@@ -175,22 +182,34 @@ class HomeScreen extends StatelessWidget {
                     },
                   );
 
-                  if (isWideScreen) {
-                    return Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Expanded(child: activity1Card),
-                        const SizedBox(width: 16),
-                        Expanded(child: activity2Card),
-                      ],
-                    );
-                  }
+                  final activity3Card = ActivityCard(
+                    subtitle: 'ACTIVITY 03',
+                    title: 'Network Monitor & Request Queue',
+                    description:
+                        'Tracks live Wi-Fi, cellular and offline states, then parks interrupted HTTP requests and retries them automatically after a handover.',
+                    icon: Icons.wifi_tethering_rounded,
+                    tags: const [
+                      'connectivity_plus',
+                      'http',
+                      'Riverpod',
+                      'Request Queue',
+                    ],
+                    status: ActivityStatus.inProgress,
+                    onTap: () {
+                      Navigator.pushNamed(context, '/network-monitor');
+                    },
+                  );
 
-                  return Column(
-                    children: [
-                      activity1Card,
-                      const SizedBox(height: 16),
-                      activity2Card,
+                  return Wrap(
+                    spacing: gap,
+                    runSpacing: gap,
+                    children: <Widget>[
+                      for (final Widget card in <Widget>[
+                        activity1Card,
+                        activity2Card,
+                        activity3Card,
+                      ])
+                        SizedBox(width: cardWidth, child: card),
                     ],
                   );
                 },
