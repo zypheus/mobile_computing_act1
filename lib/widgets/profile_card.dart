@@ -55,7 +55,7 @@ class ProfileCard extends StatelessWidget {
                 ],
               ),
               child: CircleAvatar(
-                backgroundColor: Colors.transparent,
+                backgroundColor: Colors.transparent,  
                 child: Icon(
                   Icons.group_rounded,
                   size: 34,
