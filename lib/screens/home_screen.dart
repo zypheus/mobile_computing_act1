@@ -130,7 +130,7 @@ class HomeScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: Text(
-                    '2 Activities',
+                    '3 Activities',
                     style: theme.textTheme.labelSmall?.copyWith(
                       fontWeight: FontWeight.bold,
                       color: colorScheme.onSurfaceVariant,
@@ -184,6 +184,24 @@ class HomeScreen extends StatelessWidget {
                     },
                   );
 
+                  final activity3Card = ActivityCard(
+                    subtitle: 'ACTIVITY 03',
+                    title: 'Network Diagnostic Dashboard',
+                    description:
+                        'Performs sequential speed/latency diagnostics (Idle, Download & Upload Ping), computes packet loss, updates Riverpod global health, and drives adaptive UI.',
+                    icon: Icons.speed_rounded,
+                    tags: const [
+                      'connectivity_plus',
+                      'Riverpod Health',
+                      'Ping & Speed',
+                      'Adaptive UI',
+                    ],
+                    status: ActivityStatus.completed,
+                    onTap: () {
+                      Navigator.pushNamed(context, '/activity3');
+                    },
+                  );
+
                   return Wrap(
                     spacing: gap,
                     runSpacing: gap,
@@ -191,6 +209,7 @@ class HomeScreen extends StatelessWidget {
                       for (final Widget card in <Widget>[
                         activity1Card,
                         activity2Card,
+                        activity3Card,
                       ])
                         SizedBox(width: cardWidth, child: card),
                     ],

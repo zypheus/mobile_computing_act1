@@ -6,6 +6,7 @@ import 'providers/theme_provider.dart';
 import 'screens/home_screen.dart';
 import 'screens/activity1_screen.dart';
 import 'screens/network_monitor_screen.dart';
+import 'screens/network_diagnostic_screen.dart';
 import 'screens/settings_screen.dart';
 
 void main() {
@@ -71,7 +72,9 @@ class MobileComputingApp extends StatelessWidget {
             '/': (context) => const HomeScreen(),
             '/activity1': (context) => const Activity1Screen(),
             '/activity2': (context) => const NetworkMonitorScreen(),
+            '/activity3': (context) => const NetworkDiagnosticScreen(),
             '/network-monitor': (context) => const NetworkMonitorScreen(),
+            '/network-diagnostic': (context) => const NetworkDiagnosticScreen(),
             '/settings': (context) => const SettingsScreen(),
           },
         );

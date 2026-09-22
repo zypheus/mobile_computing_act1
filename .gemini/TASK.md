@@ -4,6 +4,7 @@
 - [x] Implement Provider global theme state, master portfolio dashboard, Activity 1 state management demo, Activity 2 placeholder, and Settings screen (2026-09-16)
 - [x] Activity 3 – Network Monitor module: `connectivity_plus` live state (Wi-Fi / Cellular / Offline), Riverpod request queue that parks interrupted `http` requests and retries them after a handover, scripted Wi-Fi → Offline → Cellular demo controls and a connection event log (2026-09-19)
 - [x] Remove Activity 2 placeholder and promote Network Monitor module to Activity 2 (2026-09-19)
+- [x] Activity 3 – Network Diagnostic Dashboard: background diagnostic service, 3-phase test sequence, global Riverpod state, real-time metrics dashboard, adaptive multimedia UI demo (2026-09-22)
 
 ## Activity 3 – Network Monitor structure
 
